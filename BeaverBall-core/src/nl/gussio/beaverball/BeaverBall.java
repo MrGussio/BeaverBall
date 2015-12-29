@@ -28,7 +28,7 @@ public class BeaverBall extends ApplicationAdapter implements GestureListener {
 	@Override
 	public void create () {
 		am = new AssetManager();
-		am.load("beaver sideways.png", Texture.class);
+		am.load("beaver_sideways.png", Texture.class);
 		am.load("background.png", Texture.class);
 		am.load("ball.png", Texture.class);
 		aspectRatio = (float) Gdx.graphics.getHeight() / (float) Gdx.graphics.getWidth();
