@@ -4,11 +4,11 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
-import com.sun.prism.Texture;
 
 import nl.gussio.beaverball.entity.Ball;
 import nl.gussio.beaverball.entity.Entity;
@@ -24,6 +24,7 @@ public class BeaverBall extends ApplicationAdapter implements GestureListener {
 	public static final float GAME_WORLD_HEIGHT = 1280;
 	public static float aspectRatio;
 	public static boolean running = false;
+	public Texture splashScreen;
 	
 	@Override
 	public void create () {
@@ -40,7 +41,7 @@ public class BeaverBall extends ApplicationAdapter implements GestureListener {
 		System.out.println(Gdx.graphics.getWidth()+", "+Gdx.graphics.getHeight());
 		Gdx.graphics.requestRendering();
 		running = true;
-		resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+//		splashScreen = new Texture(Gdx.files.internal("splash.png"));
 	}
 
 	@Override
@@ -51,6 +52,7 @@ public class BeaverBall extends ApplicationAdapter implements GestureListener {
 	
 	@Override
 	public void render () {
+		Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		if(am.update()){
 			Gdx.gl.glClearColor(0, 0, 0, 1);
 			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -59,6 +61,7 @@ public class BeaverBall extends ApplicationAdapter implements GestureListener {
 				sm.getCurrentScreen().render(sb);
 			}
 		}else{
+			
 			System.out.println("Still loading...");
 		}
 	}
