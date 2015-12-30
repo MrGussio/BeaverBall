@@ -9,6 +9,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import nl.gussio.beaverball.BeaverBall;
 import nl.gussio.beaverball.entity.Ball;
+import nl.gussio.beaverball.entity.Coin;
 import nl.gussio.beaverball.entity.Entity;
 import nl.gussio.beaverball.entity.EntityManager;
 import nl.gussio.beaverball.entity.Player;
@@ -44,13 +45,12 @@ public class GameScreen extends Screen {
 		viewport = new FitViewport(BeaverBall.GAME_WORLD_WIDTH*BeaverBall.aspectRatio, BeaverBall.GAME_WORLD_HEIGHT, camera);
 
 		camera.position.set(BeaverBall.GAME_WORLD_WIDTH/2f, BeaverBall.GAME_WORLD_HEIGHT/2f, 0);
-		
-//		resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		viewport.apply();
 		camera.update();
 		em = new EntityManager();
 		em.addEntity(new Ball((int) (camera.viewportWidth/2), 600));
 		em.addEntity(new Player(0, (int) (camera.viewportHeight/100*8)));
+		em.addEntity(new Coin((int) (camera.viewportWidth/2), 600, em));
 		background = new Sprite(new Texture(Gdx.files.internal("background.png")));
 	}
 
