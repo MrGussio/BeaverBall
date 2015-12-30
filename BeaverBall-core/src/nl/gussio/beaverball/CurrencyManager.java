@@ -2,21 +2,21 @@ package nl.gussio.beaverball;
 
 public class CurrencyManager {
 
-	private int coins = 0;
+	private static int coins = 0;
 	
-	public void addCoin(){
+	public static void addCoin(){
 		coins++;
 	}
 	
-	public void addCoins(int amount){
+	public static void addCoins(int amount){
 		coins+=amount;
 	}
 	
-	public int getCoins(){
+	public static int getCoins(){
 		return coins;
 	}
 	
-	public void removeCoins(int amount){
+	public static void removeCoins(int amount){
 		coins-= amount;
 	}
 	
