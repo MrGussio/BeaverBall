@@ -17,7 +17,7 @@ public class Player extends Entity{
 	
 	public Player(int x, int y) {
 		super(x, y);
-		texture = new Sprite(new Texture(Gdx.files.internal("beaver sideways.png")));
+		texture = new Sprite(new Texture(Gdx.files.internal("beaver_sideways.png")));
 		this.texture.setSize(texture.getWidth()/2, texture.getWidth());
 		collision = new Rectangle(x, y, texture.getTexture().getWidth(), texture.getTexture().getHeight());
 	}
