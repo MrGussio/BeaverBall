@@ -1,12 +1,12 @@
 package nl.gussio.beaverball.entity;
 
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class EntityManager {
 	
-	public ArrayList<Entity> entities = new ArrayList<Entity>();
+	public CopyOnWriteArrayList<Entity> entities = new CopyOnWriteArrayList<Entity>();
 	
 	public void addEntity(Entity e){
 		entities.add(e);
