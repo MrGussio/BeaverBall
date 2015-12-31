@@ -19,6 +19,7 @@ public class Coin extends Entity {
 	public Coin(int x, int y, EntityManager em) {
 		super(x, y);
 		texture = new Sprite(new Texture(Gdx.files.internal("coin.png")));
+		collision = new Rectangle(x,y,texture.getTexture().getWidth(), texture.getTexture().getHeight());
 		this.em = em;
 	}
 
@@ -29,7 +30,7 @@ public class Coin extends Entity {
 
 	@Override
 	public void update() {
-		if(collidesWithPlayer()){
+		if(collides()){
 			CurrencyManager.addCoin();
 			em.removeEntity(this);
 		}
@@ -45,13 +46,20 @@ public class Coin extends Entity {
 		
 	}
 	
-	private boolean collidesWithPlayer() {
+	private boolean collides() {
 		if(ScreenManager.getStaticScreen() instanceof GameScreen){
 			GameScreen gs = (GameScreen) ScreenManager.getStaticScreen();
 			for(Entity e : gs.em.entities){
 				if(e instanceof Player){
 					Player p = (Player) e;
 					if(p.collision.overlaps(collision)){
+						return true;
+					}
+				}
+				
+				if(e instanceof Ball){
+					Ball b = (Ball) e;
+					if(b.collision.overlaps(collision)){
 						return true;
 					}
 				}
